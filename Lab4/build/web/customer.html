@@ -1,0 +1,139 @@
+
+<html>
+
+    <head>
+
+        <title>TODO supply a title</title>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            /* Basic Settings */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f4f7f6;
+                margin: 0;
+                padding: 20px;
+            }
+            
+            .card {
+                background: #ffffff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                max-width: 500px; /* Added max-width to keep it card-sized */
+                margin: 40px auto;
+            }
+             /* Main Title */
+            h1 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            border-left: 5px solid #6f42c1;
+            padding-left: 10px;
+            }
+
+            .form-title {
+                color: #6f42c1;
+                font-size: 1.8rem;
+                font-weight: 600;
+                margin-top: 0;
+                margin-bottom: 25px;
+            }
+
+            .input-group { margin-bottom: 20px; }
+
+            /* Main Labels */
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 8px;
+                color: #555;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            /* Fix: Radio Button Alignment */
+            .radio-group {
+                display: flex;
+                flex-wrap: wrap; /* Allows title to stay on top */
+                gap: 15px;
+                align-items: center;
+            }
+
+            /* Fix: Stop radio labels from jumping to new lines */
+            .radio-group label {
+                display: inline; 
+                font-weight: normal;
+                margin-left: 5px;
+                margin-bottom: 0;
+            }
+
+            /* Make sure the "Customer Type" title stays as a block on top */
+            .radio-group .group-label {
+                display: block;
+                width: 100%;
+                font-weight: bold;
+            }
+
+            .button-group {
+                margin-top: 30px;
+                display: flex;
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 10px 25px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: bold;
+                border: 1px solid #adadad;
+            }
+
+            .btn-submit { background-color: #e0e0e0; color: #333; }
+            .btn-cancel { background-color: #e0e0e0; color: #333; }
+            .btn-cancel:hover { background-color: #ffcccc; }
+        </style>
+    </head>
+    
+    <body>
+        <h1>Use JSP Scriptlet and JSP Expression in Application</h1>
+        <form id="discountform" action="processCustomer.jsp" method="post">
+            <div class="card">
+                <h2 class="form-title">Customer Discount</h2>
+                
+                <div class="input-group">
+                    <label for="cust_code">Customer Code</label>
+                    <input type="text" id="cust_code" name="cust_code" placeholder="Key-in customer code">
+                </div>
+                
+                <div class="input-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" min="0" placeholder="Key-in quantity">
+                </div>                
+                
+                <div class="radio-group">
+                    <label class="group-label">Customer Type</label>
+                    
+                    <input type="radio" id="normal_cust" name="cust_type" value="1" checked>
+                    <label for="normal_cust">Normal Customer</label>
+                    
+                    <input type="radio" id="privilege_cust" name="cust_type" value="2">
+                    <label for="privilege_cust">Privilege Customer</label>
+                </div>
+                
+                <div class="button-group">
+                    <input type="submit" id="btnSubmit" value="Submit" class="btn btn-submit">
+                    <input type="reset" id="btnCancel" value="Cancel" class="btn btn-cancel">
+                </div>
+            </div>
+        </form>
+    </body>
